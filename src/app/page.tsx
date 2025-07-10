@@ -1,7 +1,9 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Layout, Typography, message, Row, Col, Divider } from 'antd';
+import { Layout, Typography, message, Row, Col, Divider, Button, Space } from 'antd';
+import { FileTextOutlined, CalculatorOutlined } from '@ant-design/icons';
+import { useRouter } from 'next/navigation';
 import { MatrixForm } from '@/components/matrix/MatrixForm';
 import { Matrix3x3Display } from '@/components/matrix/MatrixDisplay';
 import { KijMatrixDisplay, Matrix3DDisplay } from '@/components/matrix/ComplexMatrixDisplay';
@@ -11,6 +13,7 @@ const { Content } = Layout;
 const { Title } = Typography;
 
 export default function Home() {
+  const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<MatrixResponse | null>(null);
 
@@ -32,9 +35,23 @@ export default function Home() {
     <Layout style={{ minHeight: '100vh', backgroundColor: '#f0f2f5' }}>
       <Content style={{ padding: '24px' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-          <Title level={1} style={{ textAlign: 'center', marginBottom: '32px' }}>
-            Procesador de Matrices
-          </Title>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '32px' }}>
+            <Title level={1} style={{ margin: 0 }}>
+              Procesador de Matrices
+            </Title>
+            <Space>
+              <Button type="primary" icon={<CalculatorOutlined />}>
+                Matrices
+              </Button>
+              <Button 
+                type="primary" 
+                icon={<FileTextOutlined />}
+                onClick={() => router.push('/invoices')}
+              >
+                Facturas
+              </Button>
+            </Space>
+          </div>
           
           <Row gutter={[24, 24]}>
             <Col xs={24} lg={12}>
