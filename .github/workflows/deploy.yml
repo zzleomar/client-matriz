@@ -20,6 +20,7 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: github-pages
     
     steps:
     - name: Checkout
@@ -38,6 +39,7 @@ jobs:
       run: npm run build
       env:
         NODE_ENV: production
+        NEXT_PUBLIC_API_URI: ${{ vars.NEXT_PUBLIC_API_URI }}
         
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
