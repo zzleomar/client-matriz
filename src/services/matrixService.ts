@@ -1,0 +1,35 @@
+import API from './instance';
+
+export interface MatrixRequest {
+  matrix1: number[][];
+  matrix2: string[][];
+  i: number;
+  j: number;
+}
+
+export interface MatrixElement {
+  A: number;
+  B: string;
+}
+
+export interface MatrixResponse {
+  message: {
+    data: {
+      matrix1: number[][];
+      matrix2: string[][];
+      matrix3: MatrixElement[][][][];
+      Kij: MatrixElement[][];
+    };
+    message: string;
+  };
+}
+
+export const processMatrices = async (data: MatrixRequest): Promise<MatrixResponse> => {
+  try {
+    const response = await API.post<MatrixResponse>('/matriz', data);
+    return response.data;
+  } catch (error) {
+    console.error('Error processing matrices:', error);
+    throw error;
+  }
+};
