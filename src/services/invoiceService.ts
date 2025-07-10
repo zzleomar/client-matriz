@@ -33,7 +33,7 @@ export interface CreateInvoiceResponse {
 
 export const getInvoices = async (): Promise<InvoiceListResponse> => {
   try {
-    const response = await API.get<InvoiceListResponse>('/invoice/list', {});
+    const response = await API.get<InvoiceListResponse>('/invoice/list');
     return response.data;
   } catch (error) {
     console.error('Error fetching invoices:', error);
@@ -43,7 +43,7 @@ export const getInvoices = async (): Promise<InvoiceListResponse> => {
 
 export const createInvoice = async (data: CreateInvoiceRequest): Promise<CreateInvoiceResponse> => {
   try {
-    const response = await API.post<CreateInvoiceResponse>('/invoice', data);
+    const response = await API.post<CreateInvoiceResponse>('/invoice/', data);
     return response.data;
   } catch (error) {
     console.error('Error creating invoice:', error);
