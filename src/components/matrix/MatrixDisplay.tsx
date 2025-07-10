@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, Typography, Table } from 'antd';
 import styled from 'styled-components';
 
-const { Title, Text } = Typography;
+const { Title } = Typography;
 
 const MatrixCard = styled(Card)`
   margin: 16px 0;

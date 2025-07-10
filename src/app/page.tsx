@@ -8,7 +8,7 @@ import { KijMatrixDisplay, Matrix3DDisplay } from '@/components/matrix/ComplexMa
 import { processMatrices, MatrixRequest, MatrixResponse } from '@/services/matrixService';
 
 const { Content } = Layout;
-const { Title, Text } = Typography;
+const { Title } = Typography;
 
 export default function Home() {
   const [loading, setLoading] = useState(false);
