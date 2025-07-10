@@ -6,7 +6,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Matrix Processor",
-  description: "A Next.js application for matrix processing",
+  description: "A Next.js application for matriz processing",
 };
 
 export default function RootLayout({

@@ -15,9 +15,9 @@ export interface MatrixElement {
 export interface MatrixResponse {
   message: {
     data: {
-      matrix1: number[][];
-      matrix2: string[][];
-      matrix3: MatrixElement[][][][];
+      matriz1: number[][];
+      matriz2: string[][];
+      matriz3: MatrixElement[][][][];
       Kij: MatrixElement[][];
     };
     message: string;

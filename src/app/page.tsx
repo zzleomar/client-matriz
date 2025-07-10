@@ -67,17 +67,17 @@ export default function Home() {
                   
                   <Matrix3x3Display
                     title="Matriz 1 (Entrada)"
-                    matrix={result.message.data.matrix1}
+                    matriz={result.message.data.matriz1}
                   />
                   
                   <Matrix3x3Display
                     title="Matriz 2 (Entrada)"
-                    matrix={result.message.data.matrix2}
+                    matriz={result.message.data.matriz2}
                   />
                   
                   <KijMatrixDisplay
                     title="Matriz Kij (Resultado)"
-                    matrix={result.message.data.Kij}
+                    matriz={result.message.data.Kij}
                   />
                 </div>
               )}
@@ -90,7 +90,7 @@ export default function Home() {
               <Col span={24}>
                 <Matrix3DDisplay
                   title="Matriz 9x9 en secciones (Completa)"
-                  matrix={result.message.data.matrix3}
+                  matriz={result.message.data.matriz3}
                 />
               </Col>
             </Row>

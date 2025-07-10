@@ -27,10 +27,10 @@ const MatrixTable = styled(Table)`
 
 interface Matrix3x3Props {
   title: string;
-  matrix: number[][] | string[][];
+  matriz: number[][] | string[][];
 }
 
-export const Matrix3x3Display: React.FC<Matrix3x3Props> = ({ title, matrix }) => {
+export const Matrix3x3Display: React.FC<Matrix3x3Props> = ({ title, matriz }) => {
   const columns = [
     {
       title: '',
@@ -52,7 +52,7 @@ export const Matrix3x3Display: React.FC<Matrix3x3Props> = ({ title, matrix }) =>
     },
   ];
 
-  const dataSource = matrix.map((row, index) => ({
+  const dataSource = matriz.map((row, index) => ({
     key: index,
     col0: row[0],
     col1: row[1],

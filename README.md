@@ -51,7 +51,7 @@ client/
 │   │   ├── layout.tsx       # Layout principal con Ant Design
 │   │   └── page.tsx         # Página principal
 │   ├── components/
-│   │   └── matrix/
+│   │   └── matriz/
 │   │       ├── MatrixForm.tsx           # Formulario de matrices
 │   │       ├── MatrixDisplay.tsx        # Componente para matrices 3x3
 │   │       └── ComplexMatrixDisplay.tsx # Componente para matrices complejas
@@ -71,8 +71,8 @@ POST http://0.0.0.0:8002/matriz
 Con el payload:
 ```json
 {
-  "matrix1": [[1,2,3],[4,5,6],[7,8,9]],
-  "matrix2": [["a","c","b"],["b","a","c"],["c","b","a"]],
+  "matriz1": [[1,2,3],[4,5,6],[7,8,9]],
+  "matriz2": [["a","c","b"],["b","a","c"],["c","b","a"]],
   "i": 1,
   "j": 2
 }

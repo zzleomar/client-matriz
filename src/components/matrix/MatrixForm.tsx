@@ -35,13 +35,13 @@ interface MatrixFormProps {
 }
 
 export const MatrixForm: React.FC<MatrixFormProps> = ({ onSubmit, loading }) => {
-  const [matrix1, setMatrix1] = useState<number[][]>([
+  const [matriz1, setMatrix1] = useState<number[][]>([
     [1, 2, 3],
     [4, 5, 6],
     [7, 8, 9]
   ]);
   
-  const [matrix2, setMatrix2] = useState<string[][]>([
+  const [matriz2, setMatrix2] = useState<string[][]>([
     ['a', 'c', 'b'],
     ['b', 'a', 'c'],
     ['c', 'b', 'a']
@@ -52,13 +52,13 @@ export const MatrixForm: React.FC<MatrixFormProps> = ({ onSubmit, loading }) => 
 
   const handleMatrix1Change = (row: number, col: number, value: string) => {
     const numValue = parseInt(value) || 0;
-    const newMatrix = [...matrix1];
+    const newMatrix = [...matriz1];
     newMatrix[row][col] = numValue;
     setMatrix1(newMatrix);
   };
 
   const handleMatrix2Change = (row: number, col: number, value: string) => {
-    const newMatrix = [...matrix2];
+    const newMatrix = [...matriz2];
     newMatrix[row][col] = value;
     setMatrix2(newMatrix);
   };
@@ -70,8 +70,8 @@ export const MatrixForm: React.FC<MatrixFormProps> = ({ onSubmit, loading }) => 
     }
     
     onSubmit({
-      matrix1,
-      matrix2,
+      matrix1: matriz1,
+      matrix2: matriz2,
       i,
       j
     });
@@ -79,7 +79,7 @@ export const MatrixForm: React.FC<MatrixFormProps> = ({ onSubmit, loading }) => 
 
   const renderMatrix1 = () => (
     <MatrixGrid>
-      {matrix1.map((row, rowIndex) =>
+      {matriz1.map((row, rowIndex) =>
         row.map((value, colIndex) => (
           <MatrixInput
             key={`${rowIndex}-${colIndex}`}
@@ -94,7 +94,7 @@ export const MatrixForm: React.FC<MatrixFormProps> = ({ onSubmit, loading }) => 
 
   const renderMatrix2 = () => (
     <MatrixGrid>
-      {matrix2.map((row, rowIndex) =>
+      {matriz2.map((row, rowIndex) =>
         row.map((value, colIndex) => (
           <MatrixInput
             key={`${rowIndex}-${colIndex}`}

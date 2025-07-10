@@ -42,7 +42,7 @@ const ElementTag = styled(Tag)`
 
 interface KijMatrixProps {
   title: string;
-  matrix: MatrixElement[][];
+  matriz: MatrixElement[][];
 }
 
 const ItemElement = (element: MatrixElement) => (
@@ -53,7 +53,7 @@ const ItemElement = (element: MatrixElement) => (
   </ElementContainer>
 );
 
-export const KijMatrixDisplay: React.FC<KijMatrixProps> = ({ title, matrix }) => {
+export const KijMatrixDisplay: React.FC<KijMatrixProps> = ({ title, matriz }) => {
   const columns = [
     {
       title: '',
@@ -78,7 +78,7 @@ export const KijMatrixDisplay: React.FC<KijMatrixProps> = ({ title, matrix }) =>
     },
   ];
 
-  const dataSource = matrix.map((row, index) => ({
+  const dataSource = matriz.map((row, index) => ({
     key: index,
     col0: row[0],
     col1: row[1],
@@ -124,10 +124,10 @@ const MatrixTitle = styled(Text)`
 
 interface Matrix3DProps {
   title: string;
-  matrix: MatrixElement[][][][];
+  matriz: MatrixElement[][][][];
 }
 
-export const Matrix3DDisplay: React.FC<Matrix3DProps> = ({ title, matrix }) => {
+export const Matrix3DDisplay: React.FC<Matrix3DProps> = ({ title, matriz }) => {
   const renderMatrix3x3 = (matrix3x3: MatrixElement[][], layerIndex: number, matrixIndex: number) => {
     const columns = [
       {
@@ -179,7 +179,7 @@ export const Matrix3DDisplay: React.FC<Matrix3DProps> = ({ title, matrix }) => {
     <MatrixCard style={{ width: '100%' }}>
       <Title level={4}>{title}</Title>
       <Collapse size="small">
-        {matrix.map((layer, layerIndex) => (
+        {matriz.map((layer, layerIndex) => (
           <Panel 
             header={`k ${layerIndex + 1}x`} 
             key={layerIndex}
