@@ -1,4 +1,4 @@
-# Matrix Processor Client
+# Matriz-Client
 
 Este es un cliente Next.js que consume la API de procesamiento de matrices `apiMatriz`. El proyecto sigue los patrones de diseño del proyecto `atimed-frontend`.
 
@@ -86,8 +86,25 @@ Con el payload:
 - **Styled Components** - Estilos personalizados
 - **Axios** - Cliente HTTP
 
+## Deploy en GitHub Pages
+
+✅ **Configurado para GitHub Pages**: Build estático optimizado y workflow automático.
+
+Ver guía completa: [GITHUB_PAGES.md](GITHUB_PAGES.md)
+
+### Quick Deploy
+1. Push a repositorio GitHub
+2. Habilita GitHub Pages en Settings > Pages
+3. Selecciona "GitHub Actions" como source
+4. Deploy automático en cada push a `main`
+
+### URLs
+- **GitHub Pages**: `https://tu-usuario.github.io/client-matriz/`
+- **API Railway**: `https://apimatriz-production.up.railway.app`
+
 ## Notas
 
-- Asegúrate de que la API `apiMatriz` esté ejecutándose en `http://0.0.0.0:8002`
+- ✅ **Build estático exitoso** - Listo para GitHub Pages
+- ✅ **API conectada** - Configurada para Railway
 - El proyecto sigue los mismos patrones de diseño que `atimed-frontend`
 - Las matrices se muestran de manera optimizada para pantallas pequeñas

@@ -8,8 +8,10 @@ const nextConfig = {
   basePath: '/client-matriz',
   assetPrefix: '/client-matriz/',
   
-  experimental: {
-    optimizeCss: true
+  // Deshabilitar optimizaciones que causan problemas con critters
+  swcMinify: true,
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production'
   }
 };
 
