@@ -7,6 +7,10 @@ export interface MatrixRequest {
   j: number;
 }
 
+export interface MatrizRequest {
+  matriz: any[][];
+}
+
 export interface MatrixElement {
   A: number;
   B: string;
@@ -24,9 +28,26 @@ export interface MatrixResponse {
   };
 }
 
+export interface MatrizResponse {
+  message: {
+    data: any[][];
+    message: string;
+  };
+}
+
 export const processMatrices = async (data: MatrixRequest): Promise<MatrixResponse> => {
   try {
     const response = await API.post<MatrixResponse>('/matriz', data);
+    return response.data;
+  } catch (error) {
+    console.error('Error processing matrices:', error);
+    throw error;
+  }
+};
+
+export const transpuestaMatriz = async (data: MatrizRequest): Promise<MatrizResponse> => {
+  try {
+    const response = await API.post<MatrizResponse>('/operation/traspuesta', data);
     return response.data;
   } catch (error) {
     console.error('Error processing matrices:', error);

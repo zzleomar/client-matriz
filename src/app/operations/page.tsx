@@ -4,10 +4,10 @@ import React, { useState } from 'react';
 import { Layout, Typography, message, Row, Col, Divider, Button, Space } from 'antd';
 import { FileTextOutlined, CalculatorOutlined } from '@ant-design/icons';
 import { useRouter } from 'next/navigation';
-import { MatrixForm } from '@/components/matrix/MatrixForm';
 import { Matrix3x3Display } from '@/components/matrix/MatrixDisplay';
-import { KijMatrixDisplay, Matrix3DDisplay } from '@/components/matrix/ComplexMatrixDisplay';
-import { processMatrices, MatrixRequest, MatrixResponse } from '@/services/matrixService';
+import { Matrix3DDisplay } from '@/components/matrix/ComplexMatrixDisplay';
+import { transpuestaMatriz, MatrizRequest, MatrizResponse } from '@/services/matrixService';
+import { MatrizForm2 } from '@/components/matrix/MatrixForm2';
 
 const { Content } = Layout;
 const { Title } = Typography;
@@ -15,12 +15,12 @@ const { Title } = Typography;
 export default function Home() {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
-  const [result, setResult] = useState<MatrixResponse | null>(null);
+  const [result, setResult] = useState<MatrizResponse | null>(null);
 
-  const handleSubmit = async (data: MatrixRequest) => {
+  const handleSubmit = async (data: MatrizRequest) => {
     setLoading(true);
     try {
-      const response = await processMatrices(data);
+      const response = await transpuestaMatriz(data);
       setResult(response);
       message.success('¡Matrices procesadas exitosamente!');
     } catch (error) {
@@ -40,7 +40,11 @@ export default function Home() {
               Procesador de Matrices
             </Title>
             <Space>
-              <Button type="primary" icon={<CalculatorOutlined />}>
+              <Button 
+                type="default" 
+                icon={<CalculatorOutlined />}
+                onClick={() => router.push('/')}
+              >
                 Matrices
               </Button>
               <Button 
@@ -51,8 +55,7 @@ export default function Home() {
                 Facturas
               </Button>
               <Button 
-                type="default" 
-                onClick={() => router.push('/operations')}
+                type="primary"
               >
                 Matriz Trasversa
               </Button>
@@ -61,7 +64,7 @@ export default function Home() {
           
           <Row gutter={[24, 24]}>
             <Col xs={24} lg={12}>
-              <MatrixForm onSubmit={handleSubmit} loading={loading} />
+              <MatrizForm2 onSubmit={handleSubmit} loading={loading} />
             </Col>
             
             <Col xs={24} lg={12}>
@@ -72,35 +75,13 @@ export default function Home() {
                   <Divider />
                   
                   <Matrix3x3Display
-                    title="Matriz 1 (Entrada)"
-                    matriz={result.message.data.matriz1}
-                  />
-                  
-                  <Matrix3x3Display
-                    title="Matriz 2 (Entrada)"
-                    matriz={result.message.data.matriz2}
-                  />
-                  
-                  <KijMatrixDisplay
-                    title="Matriz Kij (Resultado)"
-                    matriz={result.message.data.Kij}
+                    title="Matriz trasversa"
+                    matriz={result.message.data}
                   />
                 </div>
               )}
             </Col>
           </Row>
-          
-          {/* Matriz 3D ocupa todo el ancho */}
-          {result && (
-            <Row style={{ marginTop: 24 }}>
-              <Col span={24}>
-                <Matrix3DDisplay
-                  title="Matriz 9x9 en secciones (Completa)"
-                  matriz={result.message.data.matriz3}
-                />
-              </Col>
-            </Row>
-          )}
         </div>
       </Content>
     </Layout>
