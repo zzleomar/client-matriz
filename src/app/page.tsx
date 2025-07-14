@@ -44,11 +44,17 @@ export default function Home() {
                 Matrices
               </Button>
               <Button 
-                type="primary" 
+                type="default" 
                 icon={<FileTextOutlined />}
                 onClick={() => router.push('/invoices')}
               >
                 Facturas
+              </Button>
+              <Button 
+                type="default" 
+                onClick={() => router.push('/operations')}
+              >
+                Matriz Trasversa
               </Button>
             </Space>
           </div>

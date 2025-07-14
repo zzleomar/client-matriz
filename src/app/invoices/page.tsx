@@ -38,7 +38,7 @@ export default function InvoicesPage() {
             </Title>
             <Space>
               <Button 
-                type="primary" 
+                type="default" 
                 icon={<CalculatorOutlined />}
                 onClick={() => router.push('/')}
               >
@@ -46,6 +46,12 @@ export default function InvoicesPage() {
               </Button>
               <Button type="primary" icon={<FileTextOutlined />}>
                 Facturas
+              </Button>
+              <Button 
+                type="default" 
+                onClick={() => router.push('/operations')}
+              >
+                Matriz Trasversa
               </Button>
             </Space>
           </div>

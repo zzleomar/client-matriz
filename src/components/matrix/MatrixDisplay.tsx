@@ -25,39 +25,28 @@ const MatrixTable = styled(Table)`
   }
 `;
 
-interface Matrix3x3Props {
+interface MatrixDisplayProps {
   title: string;
   matriz: number[][] | string[][];
 }
 
-export const Matrix3x3Display: React.FC<Matrix3x3Props> = ({ title, matriz }) => {
-  const columns = [
-    {
-      title: '',
-      dataIndex: 'col0',
-      key: 'col0',
-      width: 80,
-    },
-    {
-      title: '',
-      dataIndex: 'col1',
-      key: 'col1',
-      width: 80,
-    },
-    {
-      title: '',
-      dataIndex: 'col2',
-      key: 'col2',
-      width: 80,
-    },
-  ];
-
-  const dataSource = matriz.map((row, index) => ({
-    key: index,
-    col0: row[0],
-    col1: row[1],
-    col2: row[2],
+export const Matrix3x3Display: React.FC<MatrixDisplayProps> = ({ title, matriz }) => {
+  const numCols = matriz[0]?.length || 0;
+  
+  const columns = Array.from({ length: numCols }, (_, index) => ({
+    title: '',
+    dataIndex: `col${index}`,
+    key: `col${index}`,
+    width: 80,
   }));
+
+  const dataSource = matriz.map((row, index) => {
+    const rowData: any = { key: index };
+    row.forEach((cell, cellIndex) => {
+      rowData[`col${cellIndex}`] = cell;
+    });
+    return rowData;
+  });
 
   return (
     <MatrixCard>

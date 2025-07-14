@@ -40,15 +40,24 @@ export default function Home() {
               Procesador de Matrices
             </Title>
             <Space>
-              <Button type="primary" icon={<CalculatorOutlined />}>
+              <Button 
+                type="default" 
+                icon={<CalculatorOutlined />}
+                onClick={() => router.push('/')}
+              >
                 Matrices
               </Button>
               <Button 
-                type="primary" 
+                type="default" 
                 icon={<FileTextOutlined />}
                 onClick={() => router.push('/invoices')}
               >
                 Facturas
+              </Button>
+              <Button 
+                type="primary"
+              >
+                Matriz Trasversa
               </Button>
             </Space>
           </div>
