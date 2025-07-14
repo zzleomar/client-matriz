@@ -5,7 +5,6 @@ import { Layout, Typography, message, Row, Col, Divider, Button, Space } from 'a
 import { FileTextOutlined, CalculatorOutlined } from '@ant-design/icons';
 import { useRouter } from 'next/navigation';
 import { Matrix3x3Display } from '@/components/matrix/MatrixDisplay';
-import { Matrix3DDisplay } from '@/components/matrix/ComplexMatrixDisplay';
 import { transpuestaMatriz, MatrizRequest, MatrizResponse } from '@/services/matrixService';
 import { MatrizForm2 } from '@/components/matrix/MatrixForm2';
 
